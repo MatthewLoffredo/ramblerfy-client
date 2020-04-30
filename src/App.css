@@ -1,6 +1,6 @@
 .App-container {
    /*background-image: url('./images/headertemp.jpg');*/
-  background-image: url("./assests/headertemp.jpg");
+  background-image: url("./assets/headertemp.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
