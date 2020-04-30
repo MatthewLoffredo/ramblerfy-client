@@ -1,9 +1,11 @@
 .App-container {
+   /*background-image: url('./images/headertemp.jpg');*/
   background-image: url('./images/purplebeach.jpeg');
+   background-attachment: fixed;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
+  background-position: 50% 50%;
+  /* width: 100%; */
+  height: 140vh;;
 }
 
 header {
@@ -78,7 +80,7 @@ header {
 
     .main-nav{display: none;}
 
-    .movable-icon{ display:inline block ;
+    .movable-icon{ display:inline ;
         color: mintcream;
         float: right;
         margin-top: 20px;
@@ -93,3 +95,6 @@ header {
         display: block;
         margin-top: 10px;
     }
+.navbar {
+    background-color: #CB86ED;
+}

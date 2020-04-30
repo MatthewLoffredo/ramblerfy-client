@@ -1,8 +1,8 @@
 .SearchPage {
-  position: relative;
-  display:block;
-  /*Or*/
-  clear:both;
+    position: relative;
+    display:block;
+    /*Or*/
+    clear:both;
 }
 
 body {
@@ -33,7 +33,7 @@ h2{
     margin-bottom: 50px;
 }
 h4{
-   text-align: center;
+    text-align: center;
     margin-right: 40%;
 
 }
@@ -60,7 +60,7 @@ h4{
 }
 
 .group {
-   /* position:relative;*/
+    /* position:relative;*/
     right:3%;
     list-style: none;
     width: 100%;
@@ -71,7 +71,7 @@ h4{
 }
 
 .slider {
-   /*position: absolute; */
+    /*position: absolute; */
 
     margin-left: 40%;
     margin-top: 0px;
@@ -127,11 +127,11 @@ h4{
     -webkit-appearance: none;
     width: 17px;
     height: 17px;
-   border-radius: 50%;
-   background: rgb(67, 224, 252);
-   cursor: pointer;
-   border:4px solid black;
-   box-shadow: -407px 0 0 400px #5ce2fa;
+    border-radius: 50%;
+    background: rgb(67, 224, 252);
+    cursor: pointer;
+    border:4px solid black;
+    box-shadow: -407px 0 0 400px #5ce2fa;
 }
 
 #tempo{
@@ -176,11 +176,11 @@ h4{
     -webkit-appearance: none;
     width: 17px;
     height: 17px;
-   border-radius: 50%;
-   background: rgb(67, 224, 252);
-   cursor: pointer;
-   border:4px solid black;
-   box-shadow: -407px 0 0 400px #5ce2fa;
+    border-radius: 50%;
+    background: rgb(67, 224, 252);
+    cursor: pointer;
+    border:4px solid black;
+    box-shadow: -407px 0 0 400px #5ce2fa;
 }
 
 #duration{
@@ -219,14 +219,14 @@ h4{
 }
 
 .range3::-webkit-slider-thumb{
-   -webkit-appearance: none;
+    -webkit-appearance: none;
     width: 17px;
     height: 17px;
-   border-radius: 50%;
-   background: rgb(67, 224, 252);
-   cursor: pointer;
-   border:4px solid black;
-   box-shadow: -407px 0 0 400px #5ce2fa;
+    border-radius: 50%;
+    background: rgb(67, 224, 252);
+    cursor: pointer;
+    border:4px solid black;
+    box-shadow: -407px 0 0 400px #5ce2fa;
 }
 
 #valence{
@@ -246,7 +246,7 @@ h4{
 .btnFour{
     background-color: black;
     color: whitesmoke;
-    }
+}
 
 .btnFour:hover{
     background-color: #390550;
@@ -270,21 +270,21 @@ h4{
     -webkit-appearance: none;
     width: 17px;
     height: 17px;
-   border-radius: 50%;
-   background: rgb(67, 224, 252);
-   cursor: pointer;
-   border:4px solid black;
-   box-shadow: -407px 0 0 400px #5ce2fa;
+    border-radius: 50%;
+    background: rgb(67, 224, 252);
+    cursor: pointer;
+    border:4px solid black;
+    box-shadow: -407px 0 0 400px #5ce2fa;
 }
 
 .LoadButton {
-  vertical-align: baseline;
-  margin-bottom: 10px;
-  width: 50vh;
+    vertical-align: baseline;
+    margin-bottom: 10px;
+    width: 50vh;
 }
 
 .btn-align {
-  text-align: center;
+    text-align: center;
 }
 
 .movable-icon{display: none;}
@@ -294,7 +294,7 @@ h4{
         width:100%;
         padding:0 2%;
 
-       }
+    }
 }
 
 @media only screen and (max-width: 768px){
@@ -302,17 +302,17 @@ h4{
     .main-nav{display: none;}
 
     .movable-icon{
-        display:inline block ;
+        display:inline ;
         color: mintcream;
         float: right;
         margin-top: 20px;
         margin-right: 20px;
-    /*Gotta WORK ON THIS PART*/
+        /*Gotta WORK ON THIS PART*/
     }
 }
 
 .main-nav li{
-        float: left;
-        display: block;
-        margin-top: 10px;
-    }
+    float: left;
+    display: block;
+    margin-top: 10px;
+}

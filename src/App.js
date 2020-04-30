@@ -51,27 +51,36 @@ function App(props) {
   return (
     !isAuthenticating &&
     <div className="App-container">
-      <header>
-        <nav>
+        <Navbar classname="navbar" bg="dark" variant="dark" >
+          <Navbar.Brand href="#home"/>
           <div className="row clearfix">
-            <LinkContainer to="/">
-              <img src={require("./images/android-chrome-512x512.png")} className="logo" />
-            </LinkContainer>
+            <Nav>
+              <LinkContainer to="/">
+                <img src={require("./images/android-chrome-512x512.png")} className="logo" />
+              </LinkContainer>
+            </Nav>
             {isAuth
               ? <ul
                 className="main-nav animated slideInRight"
                 id="check-status"
                 >
-                  <NavItem onClick={handleLogout}>Logout</NavItem>
-                  <LinkContainer to="/settings">
-                    <li><a href="#">SETTINGS</a></li>
-                  </LinkContainer>
-                  <LinkContainer to="/documentation">
-                    <li><a href="#">DOCUMENTATION</a></li>
-                  </LinkContainer>
-                  <LinkContainer to="/contact">
-                    <li><a href="#">CONTACT US</a></li>
-                  </LinkContainer>
+                  <Nav>
+                    <NavItem onClick={handleLogout}>Logout</NavItem>
+                  </Nav>
+                  <Nav>
+                    <LinkContainer to="/settings">
+                      <li><a href="#">SETTINGS</a></li>
+                    </LinkContainer>
+                    <LinkContainer to="/documentation">
+                      <li><a href="#">DOCUMENTATION</a></li>
+                    </LinkContainer>
+                    <LinkContainer to="/contact">
+                      <li><a href="#">CONTACT US</a></li>
+                    </LinkContainer>
+                    <LinkContainer to="/team">
+                      <li><a href="#">About Us</a></li>
+                    </LinkContainer>
+                  </Nav>
                 </ul>
 
               : <>
@@ -88,15 +97,17 @@ function App(props) {
                     <LinkContainer to="/contact">
                       <li><a href="#">CONTACT US</a></li>
                     </LinkContainer>
+                    <LinkContainer to="/team">
+                      <li><a href="#">About Us</a></li>
+                    </LinkContainer>
                   </ul>
                 </>
             }
             <a href="#" className="movable-icon" onclick="slideshow()"> <i className="fa fa-align-justify" /> </a>
           </div>
-        </nav>
+        </Navbar>
         { /*this handles all components rendered under the navbar */ }
         <Routes appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults }} />
-      </header>
     </div>
   );
 }
