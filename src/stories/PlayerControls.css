@@ -1,0 +1,68 @@
+
+@font-face {
+  font-family: Spoticon;
+  src: url('../public/fonts/spoticon_regular_2.woff2');
+}
+
+.icon-shuffle:before {
+  content: "\F144";
+  font-family: Spoticon;
+}
+
+.icon-skip-back:before {
+  content: "\F146";
+  font-family: Spoticon;
+}
+
+.icon-play:before {
+  content: "\F132";
+  font-family: Spoticon;
+}
+
+.icon-pause:before {
+  content: "\F130";
+  font-family: Spoticon;
+}
+
+.icon-skip-forward:before {
+  content: "\F148";
+  font-family: Spoticon;
+}
+
+.icon-repeat-off:before {
+  content: "\F13E";
+  font-family: Spoticon;
+}
+
+.icon-repeat-context:before {
+  content: "\F13E";
+  font-family: Spoticon;
+}
+
+.icon-repeat-track:before {
+  content: "\F200";
+  font-family: Spoticon;
+}
+
+.box-controls {
+  text-align: center;
+  width: 100vh;
+  height: 28vh;
+  margin-right: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress {
+  margin: auto;
+  border: 1px solid #eee;
+  height: 6px;
+  border-radius: 3px;
+  width: 30%;
+}
+
+.progress__bar {
+  background-color: #eee;
+  height: 4px;
+}

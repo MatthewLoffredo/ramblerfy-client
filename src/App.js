@@ -4,8 +4,11 @@ import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import './App.css';
 import Routes from "./Routes";
-import { Jumbotron } from "./components/Jumbotron";
+import Player from "./components/Player";
 import { Auth } from "aws-amplify";
+import { PlayerContextProvider } from "./context/PlayerContext";
+import PlayerBar from "./containers/PlayerBar";
+import PlayerControls from "./components/PlayerControls";
 
 function App(props) {
   /* useState is a react hook with the format [variable, function]
@@ -17,6 +20,13 @@ function App(props) {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [userCreds, setUserCreds] = useState(null);
   const [userResults, setUserResults] = useState(null);
+
+  // All the props for managing spotify connection
+  const [spotifyProps, setSpotifyProps] = useState({
+    token: "",
+    loggedIn: false,
+    player: null
+  });
 
   // triggers onLoad the first time app is loaded (empty list of var as param)
   useEffect(() => {
@@ -51,12 +61,12 @@ function App(props) {
   return (
     !isAuthenticating &&
     <div className="App-container">
-        <Navbar classname="navbar" bg="dark" variant="dark" >
+        <Navbar className="navbar" bg="dark" variant="dark" >
           <Navbar.Brand href="#home"/>
           <div className="row clearfix">
             <Nav>
               <LinkContainer to="/">
-                <img src={require("./images/android-chrome-512x512.png")} className="logo" />
+                <img src={"./images/android-chrome-512x512.png"} className="logo" />
               </LinkContainer>
             </Nav>
             {isAuth
@@ -103,24 +113,20 @@ function App(props) {
                   </ul>
                 </>
             }
-            <a href="#" className="movable-icon" onclick="slideshow()"> <i className="fa fa-align-justify" /> </a>
+            <a href="#" className="movable-icon" onClick="slideshow()"> <i className="fa fa-align-justify" /> </a>
           </div>
         </Navbar>
         { /*this handles all components rendered under the navbar */ }
-        <Routes appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults }} />
+        <Routes appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults, spotifyProps, setSpotifyProps }} />
+        <PlayerContextProvider>
+          <div className="audio-bar">
+            {spotifyProps.loggedIn &&
+              <Player appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults, spotifyProps, setSpotifyProps }} />
+            }
+          </div>
+        </PlayerContextProvider>
     </div>
   );
 }
-
-/* driver connection example
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://<username>:<password>@ramblerpy-5rd9x.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-*/
 
 export default withRouter(App);

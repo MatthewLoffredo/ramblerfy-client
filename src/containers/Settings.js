@@ -5,6 +5,7 @@ import "./Settings.css";
 export default function Settings(props) {
   //const [userCreds, setUserCreds] = useState(null);
   const userCreds = props.userCreds;
+  const token = props.spotifyProps.token;
 
 
   /*
@@ -40,6 +41,8 @@ export default function Settings(props) {
         <div className="main-content-headerSettings">
           <h1>My Account:<br />
             {userCreds !== null ? userCreds.attributes.email : "none"} </h1>
+          <h2>My Token:<br />
+            {token !== "" ? token : "none"} </h2>
         </div>
     );
   }
