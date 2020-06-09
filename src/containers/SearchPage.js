@@ -1,9 +1,6 @@
-import React, { ReactDOM, useState, useRef } from 'react';
-import { Auth } from "aws-amplify";
-import { LinkContainer } from "react-router-bootstrap";
+import React, { useState } from 'react';
 import "./SearchPage.css";
 import LoadButton from "../components/LoadButton";
-import { useFormFields } from "../libs/hooksLib";
 //import { searchOneFilter } from "../backend/server.js";
 import { transformData } from "../libs/apiLib";
 

@@ -3,31 +3,29 @@ import "./PlayerBar.css";
 import PropTypes from 'prop-types';
 import PlayerControls from './PlayerControls';
 import defaultCoverArtUrl from './defaultCoverArtUrl.png';
-import { connect } from 'react-redux';
 
-// Import selectors and actions here
-import { togglePlay } from './actions/PlayerActions';
-import { getPlayerControlState } from './selectors/player';
-
-export function PlayerBar({ track: { trackName, albumCover, artist, volume, shuffle, repeat, progress, duration, favorite }, onVolumeChange, onTogglePlay, onPrevious, onNext, onShuffle, onRepeat, onToggleTrackFavorite, onVolumeMuteToggle, playerControlState }) {
-  const events = {
-    onTogglePlay,
-    onPrevious,
-    onNext,
-    onShuffle,
-    onRepeat,
-  };
+export default function PlayerBar({
+  track: {
+    trackName,
+    albumCover,
+    artist,
+    volume,
+    favorite,
+  },
+  // trackName,
+  // albumCover,
+  // artist,
+  // volume,
+  // favorite,
+  onVolumeChange,
+  onToggleTrackFavorite,
+  onVolumeMuteToggle,
+  playerControlState,
+  ...playerControlActions
+}) {
 
   let volumeInput = React.createRef()
   let volumeProgressBar = React.createRef()
-
-  const trackData = {
-    // isPlaying: isPlaying,
-    progress: progress,
-    duration: duration,
-    shuffle: shuffle,
-    repeat: repeat,
-  };
 
   function handleMouseUp() {
      onVolumeChange(volumeInput.current.value);
@@ -42,22 +40,25 @@ export function PlayerBar({ track: { trackName, albumCover, artist, volume, shuf
       <div className="player-box">
 
         {/*Album cover, track name, and artist name components*/}
-        <div className="now-playing__img">
-          <img src={albumCover || defaultCoverArtUrl} />
-        </div>
-        <div className="now-playing__side">
-          <div className="now-playing__name">
-            <span title={trackName}>{trackName || "Cannot load playing track"}
-            </span>
+        <div className="info-wrapper">
+          <div className="now-playing__img">
+            <img src={albumCover || defaultCoverArtUrl} />
           </div>
-          <div className="now-playing__artist">
-            <span title={artist}>{artist || "Media type is not supported"}
-            </span>
+          <div className="now-playing__side">
+            <div className="now-playing__name">
+              <span title={trackName}>{trackName || "Cannot load playing track"}
+              </span>
+            </div>
+            <div className="now-playing__artist">
+              <span title={artist}>{artist || "Media type is not supported"}
+              </span>
+            </div>
           </div>
         </div>
 
         {/*Player control icons: back, play/pause, forward, shuffle, repeat*/}
-        <PlayerControls track={{ ...trackData }} { ...events } { ...playerControlState } />
+        <PlayerControls track={{ ...playerControlState }}
+          { ...playerControlActions } />
 
         {/*icons for liking tracks, volume, and volume bar*/}
         <div className="extended-controls">
@@ -96,19 +97,3 @@ export function PlayerBar({ track: { trackName, albumCover, artist, volume, shuf
     </>
   )
 }
-
-// Map state to props using selectors here
-// selectors get just the state you need
-const mapStateToProps = (state) => {
-  return {
-    playerControlState: getPlayerControlState(state),
-  };
-}
-
-// Connect to Store here
-export default connect(
-  mapStateToProps,
-  dispatch => ({
-    onTogglePlay: () => dispatch(togglePlay()),
-  })
-)(PlayerBar);

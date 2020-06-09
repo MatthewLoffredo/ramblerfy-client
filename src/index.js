@@ -7,6 +7,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 import config from './config';
 
+// Redux
+import { Provider } from "react-redux";
+import configureStore from "./redux/store/store";
+
+const store = configureStore();
+
 // Config for AWS user account handling
 Amplify.configure({
   Auth: {
@@ -20,9 +26,11 @@ Amplify.configure({
 
 //Wrapped in browser router so it can be a single page app
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

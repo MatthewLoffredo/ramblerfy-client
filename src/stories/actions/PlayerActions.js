@@ -1,21 +1,41 @@
+import { store } from '../store/index';
 
+// Player Bar Actions
 
-// Toggle Play Action
+// Actions
+export const actions = {
+  TOGGLE_PLAY: 'TOGGLE_PLAY',
+  START_PLAYBACK_SUCCESS: 'START_PLAYBACK_SUCCESS',
+  PAUSE_PLAYBACK_SUCCESS: 'PAUSE_PLAYBACK_SUCCESS',
+};
+
+/*
+// Action Creators for dispatch
 export const onTogglePlay = () => (dispatch, getState) => {
+  // Dispatch goes to reducer, reducer returns state
+  return dispatch(actions.TOGGLE_PLAY);
+};
+*/
 
+// export const togglePlay = () => (dispatch, getState) => {
+//   if(getState().playback.isPlaying) {
+//     dispatch( { type: actions.PAUSE_PLAYBACK_SUCCESS } );
+//   }
+//
+//   dispatch( { type: actions.START_PLAYBACK_SUCCESS } );
+//
+// };
 
+export const togglePlay = () => {
 
-  // if (getState().player.playback["is_playing"]) {
-  //   return dispatch(callApiThunk({
-  //     endpoint: playerEndpointGetters.pausePlaybackEndpoint(),
-  //     method: 'PUT',
-  //     types: [ actionTypes.PAUSE_PLAYBACK_REQUEST, actionTypes.PAUSE_PLAYBACK_SUCCESS, actionTypes.PAUSE_PLAYBACK_FAILURE ]
-  //   }))
+  // try {
+  //   console.log(store.getState().playback.isPlaying);
+  // } catch (err) {
+  //   console.log(err);
   // }
-  //
-  // return dispatch(callApiThunk({
-  //   endpoint: playerEndpointGetters.startPlaybackEndpoint(),
-  //   method: 'PUT',
-  //   types: [ actionTypes.START_PLAYBACK_REQUEST, actionTypes.START_PLAYBACK_SUCCESS, actionTypes.START_PLAYBACK_FAILURE ]
-  // }))
-}
+  // if(store.getState().playback.isPlaying) {
+  //   return { type: actions.PAUSE_PLAYBACK_SUCCESS };
+  // }
+
+  return { type: actions.START_PLAYBACK_SUCCESS };
+};

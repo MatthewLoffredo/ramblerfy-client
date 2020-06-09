@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100vh;;
+  min-height: 100vh;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     width: 100%; */
 }
 
-.audio-bar {
+/* .audio-bar {
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -25,20 +25,20 @@ header {
   border-width: 2px;
   z-index: 1;
   background-color: black;
-}
+} */
 
 /* prevents floated elements from overflowing container */
-.clearfix:after {
+/* .clearfix:after {
     content: ".";
     visibility: hidden;
     display: block;
     height: 0px;
     clear: both;
 }
+*/
 .row {
-    max-width: 1180px;
+    max-height: 140px;
     margin: 0 auto;
-
 }
 
 .logo {
@@ -46,11 +46,11 @@ header {
     width: auto;
     float: left;
     margin-top: 20px;
-    transform: translate(-110%, 0%);
+    /* transform: translate(-110%, 0%); */
 }
 
 .logo:hover{
-    border: 1px solid whitesmoke;
+    border: 1px solid darkslategrey;
 }
 
 .main-nav {
@@ -102,8 +102,8 @@ header {
 
 
 .main-nav li{
-        float: left;
-        display: block;
+        /* float: left;
+        display: block; */
         margin-top: 10px;
     }
 .navbar {

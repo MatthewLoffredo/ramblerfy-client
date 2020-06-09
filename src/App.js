@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import './App.css';
 import Routes from "./Routes";
-import Player from "./components/Player";
+// import Player from "./components/Player";
 import { Auth } from "aws-amplify";
-import { PlayerContextProvider } from "./context/PlayerContext";
-import PlayerBar from "./containers/PlayerBar";
-import PlayerControls from "./components/PlayerControls";
+// import { PlayerContextProvider } from "./context/PlayerContext";
+// import PlayerBar from "./containers/PlayerBar";
+
+// Storybook integration
+import PlayerContainer from './tmp_storybook_components/PlayerContainer';
 
 function App(props) {
   /* useState is a react hook with the format [variable, function]
@@ -61,70 +63,75 @@ function App(props) {
   return (
     !isAuthenticating &&
     <div className="App-container">
-        <Navbar className="navbar" bg="dark" variant="dark" >
-          <Navbar.Brand href="#home"/>
-          <div className="row clearfix">
+        <Navbar className="inline-flex overflow-hidden navbar" bg="dark" variant="dark" >
+          {/* <Navbar.Brand href="#home"/> */}
+          <div className="inline-flex row clearfix">
             <Nav>
               <LinkContainer to="/">
-                <img src={"./images/android-chrome-512x512.png"} className="logo" />
+                <img src={require("./images/apple-touch-icon.png")} className="logo" />
               </LinkContainer>
             </Nav>
             {isAuth
               ? <ul
-                className="main-nav animated slideInRight"
+                className="inline-flex main-nav animated slideInRight"
                 id="check-status"
                 >
-                  <Nav>
+                  <Nav className="flex-1">
                     <NavItem onClick={handleLogout}>Logout</NavItem>
                   </Nav>
-                  <Nav>
+                  <Nav className="inline-flex">
                     <LinkContainer to="/settings">
-                      <li><a href="#">SETTINGS</a></li>
+                      <li className="flex-1"><a href="/#">SETTINGS</a></li>
                     </LinkContainer>
                     <LinkContainer to="/documentation">
-                      <li><a href="#">DOCUMENTATION</a></li>
+                      <li className="flex-1"><a href="/#">DOCUMENTATION</a></li>
                     </LinkContainer>
                     <LinkContainer to="/contact">
-                      <li><a href="#">CONTACT US</a></li>
+                      <li className="flex-1"><a href="/#">CONTACT US</a></li>
                     </LinkContainer>
                     <LinkContainer to="/team">
-                      <li><a href="#">About Us</a></li>
+                      <li className="flex-1"><a href="/#">About Us</a></li>
                     </LinkContainer>
                   </Nav>
                 </ul>
 
               : <>
-                  <ul className="main-nav animated slideInRight" id="check-status">
-                    <LinkContainer to="/signup">
-                      <li><a href="#">SIGN UP</a></li>
+                  <ul className="inline-flex main-nav animated slideInRight" id="check-status">
+                    <LinkContainer className="flex-1" to="/signup">
+                      <li><a href="/#">SIGN UP</a></li>
                     </LinkContainer>
-                    <LinkContainer to="/login">
-                      <li><a href="#">LOGIN</a></li>
+                    <LinkContainer className="flex-1" to="/login">
+                      <li><a href="/#">LOGIN</a></li>
                     </LinkContainer>
-                    <LinkContainer to="/documentation">
-                      <li><a href="#">DOCUMENTATION</a></li>
+                    <LinkContainer className="flex-1" to="/documentation">
+                      <li><a href="/#">DOCUMENTATION</a></li>
                     </LinkContainer>
-                    <LinkContainer to="/contact">
-                      <li><a href="#">CONTACT US</a></li>
+                    <LinkContainer className="flex-1" to="/contact">
+                      <li><a href="/#">CONTACT US</a></li>
                     </LinkContainer>
-                    <LinkContainer to="/team">
-                      <li><a href="#">About Us</a></li>
+                    <LinkContainer className="flex-1" to="/team">
+                      <li><a href="/#">About Us</a></li>
                     </LinkContainer>
                   </ul>
                 </>
             }
-            <a href="#" className="movable-icon" onClick="slideshow()"> <i className="fa fa-align-justify" /> </a>
+            <a href="/#" className="movable-icon" onClick="slideshow()"> <i className="fa fa-align-justify" /> </a>
           </div>
         </Navbar>
         { /*this handles all components rendered under the navbar */ }
         <Routes appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults, spotifyProps, setSpotifyProps }} />
-        <PlayerContextProvider>
+
+        { /*Player Bar on bottom of screen */}
+        {console.log("app screen")}
+        <PlayerContainer />
+
+        {/* <PlayerContextProvider>
           <div className="audio-bar">
             {spotifyProps.loggedIn &&
               <Player appProps={{ isAuth, userHasAuth, userCreds, setUserCreds, userResults, setUserResults, spotifyProps, setSpotifyProps }} />
             }
           </div>
-        </PlayerContextProvider>
+        </PlayerContextProvider> */}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default {
 };
 
 export const trackData = {
-  isPlaying: false,
+  // isPlaying: false,
   progress: 120000,
   duration: 180000,
   shuffle: false,
@@ -19,7 +19,7 @@ export const trackData = {
 };
 
 export const actionsData = {
-  onTogglePlay: action('togglePlay'),
+  onTogglePlay: action('onTogglePlay'),
   onPrevious: action('onPrevious'),
   onNext: action('onNext'),
   onShuffle: action('onShuffle'),
@@ -28,4 +28,4 @@ export const actionsData = {
 
 export const Default = () => <PlayerControls track={{ ...trackData }} { ...actionsData } />;
 
-export const Playing = () => <PlayerControls track={{ ...trackData, isPlaying: true }} { ...actionsData } />;
+// export const Playing = () => <PlayerControls track={{ ...trackData, isPlaying: true }} { ...actionsData } />;

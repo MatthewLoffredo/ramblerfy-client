@@ -12,11 +12,8 @@
 
 import React from 'react';
 import "./PlayerControls.css";
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPause, faPlay, faStepBackward, faStepForward, faRandom, faRedo } from "@fortawesome/free-solid-svg-icons";
 
-export default function PlayerControls({ track: { progress, duration, shuffle, repeat }, isPlaying, onTogglePlay, onPrevious, onNext, onShuffle, onRepeat}) {
+export default function PlayerControls({ track: { progress, duration, shuffle, repeat, isPlaying}, onTogglePlay, onPrevious, onNext, onShuffle, onRepeat}) {
 
   const progressBarStyles = {
     width: (progress * 100 / duration) + '%'
@@ -55,13 +52,13 @@ export default function PlayerControls({ track: { progress, duration, shuffle, r
   )
 }
 
-PlayerControls.propTypes = {
-  track: PropTypes.shape({
-    isPlaying: PropTypes.bool,
-    progress: PropTypes.number,
-    duration: PropTypes.number,
-  }),
-  togglePlay: PropTypes.func,
-  onPrevious: PropTypes.func,
-  onNext: PropTypes.func,
-};
+// PlayerControls.propTypes = {
+//   track: PropTypes.shape({
+//     isPlaying: PropTypes.bool,
+//     progress: PropTypes.number,
+//     duration: PropTypes.number,
+//   }),
+//   togglePlay: PropTypes.func,
+//   onPrevious: PropTypes.func,
+//   onNext: PropTypes.func,
+// };

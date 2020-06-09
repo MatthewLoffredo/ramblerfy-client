@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { Provider } from 'react-redux';
+import { store } from './store/index';
 
 import PlayerBar from './PlayerBar';
 import { trackData, actionsData } from './PlayerControls.stories';
@@ -10,6 +12,7 @@ export default {
   component: PlayerBar,
   title: 'Player Bar',
   excludeStories: /.*Data$/,
+  decorators: [story => <Provider store={store}>{story()}</Provider>],
 };
 
 export const defaultTrackData = {

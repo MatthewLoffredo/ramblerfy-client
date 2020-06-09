@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import { LinkContainer } from "react-router-bootstrap";
 import config from '../config';
@@ -41,7 +41,7 @@ export default function Home(props) {
               <h1>WELCOME TO <span className="colorchange">RAMBLERFY!</span><br />
                   WHERE YOU FIND THE BEST JAMS </h1>
               <LinkContainer to="/searchpage">
-                  <a href="#" className="btn btn-one">CLICK TO SEARCH FOR JAMS</a>
+                  <a href="/#" className="btn btn-one">CLICK TO SEARCH FOR JAMS</a>
               </LinkContainer>
               {!props.spotifyProps.loggedIn && (
                 <a

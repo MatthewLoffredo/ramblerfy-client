@@ -1,9 +1,5 @@
 import React from "react";
 import './Team.css';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, CardLink, Button
-} from 'reactstrap';
 
 export default function Home() {
     return (

@@ -20,13 +20,13 @@
     transform: translate(-50%, -50%);
 }
 
-h1{
+/* h1{
     color: white;
     font-size: 240%;
     word-spacing: 5px;
     letter-spacing: 2px;
     margin-bottom: 25px;
-}
+} */
 
 .login {
     display: inline-block;
@@ -68,7 +68,7 @@ h1{
     background-color: #bf55ec;
 }
 
-.colorchange{
+/* .colorchange{
     animation: colorchangeRamblerfy 1s infinite ;
 }
 @keyframes colorchangeRamblerfy {
@@ -76,4 +76,4 @@ h1{
     25% {color: maroon;}
     50% {color: gold;}
     100% {color: maroon;}
-}
+} */
